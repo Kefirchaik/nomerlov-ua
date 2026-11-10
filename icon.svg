@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 192 192">
+<defs><linearGradient id="a" x2="1" y2="1"><stop stop-color="#bd66ff"/><stop offset="1" stop-color="#5443d8"/></linearGradient></defs>
+<rect width="192" height="192" rx="42" fill="#0b0b18"/>
+<rect x="15" y="37" width="162" height="118" rx="25" fill="url(#a)"/>
+<rect x="24" y="59" width="144" height="74" rx="12" fill="#f4f4f4" stroke="#17182b" stroke-width="5"/>
+<rect x="28" y="63" width="22" height="66" fill="#1658af"/>
+<rect x="30" y="74" width="18" height="10" fill="#ffce32"/>
+<text x="39" y="113" font-size="13" font-family="Arial" font-weight="700" text-anchor="middle" fill="white">UA</text>
+<text x="110" y="108" font-family="Arial" font-size="38" font-weight="900" text-anchor="middle" fill="#151725">7777</text>
+<path d="M54 122h106" stroke="#151725" opacity=".18" stroke-width="2"/>
+</svg>
