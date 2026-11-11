@@ -1,7 +1,7 @@
-/* НомерЛов UA v1.5.2 — APK-oriented shell. Never changes the game save key. */
+/* НомерЛов UA v1.5.3 — APK-oriented shell. Never changes the game save key. */
 (()=>{
 'use strict';
-const APP_VERSION='1.5.2';
+const APP_VERSION='1.5.3';
 const nativeMode=location.protocol==='file:'||new URLSearchParams(location.search).get('apk')==='1'||/\bwv\b/i.test(navigator.userAgent);
 document.documentElement.classList.add('nomerlov-v15');
 if(nativeMode)document.documentElement.classList.add('apk-native');
@@ -72,7 +72,7 @@ function setupMenu(){
  document.addEventListener('keydown',event=>{if(event.key==='Escape')closeMenu()});
 }
 function closeExistingOverlay(){
- if(window.NOMERLOV_LEGAL?.isOpen())return window.NOMERLOV_LEGAL.close();
+ if(window.NOMERLOV_LEGAL?.isOpen())return window.NOMERLOV_LEGAL.closeTop();
  if(closeMenu())return true;
  const choice=$('choiceBackdrop');
  if(choice&&!choice.classList.contains('hidden')){$('choiceClose')?.click();return true}
