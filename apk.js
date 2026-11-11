@@ -1,7 +1,7 @@
-/* НомерЛов UA v1.5.1 — APK-oriented shell. Never changes the game save key. */
+/* НомерЛов UA v1.5.2 — APK-oriented shell. Never changes the game save key. */
 (()=>{
 'use strict';
-const APP_VERSION='1.5.1';
+const APP_VERSION='1.5.2';
 const nativeMode=location.protocol==='file:'||new URLSearchParams(location.search).get('apk')==='1'||/\bwv\b/i.test(navigator.userAgent);
 document.documentElement.classList.add('nomerlov-v15');
 if(nativeMode)document.documentElement.classList.add('apk-native');
@@ -21,6 +21,8 @@ function updateMenu(){
  menu.querySelector('[data-apk-action="export"]').textContent=tr('↧ Експорт','↧ Экспорт');
  menu.querySelector('[data-apk-action="import"]').textContent=tr('↥ Імпорт','↥ Импорт');
  menu.querySelector('#apkSupportLink').textContent=tr('♡ Підтримати автора','♡ Поддержать автора');
+ menu.querySelector('#apkPrivacyLink').textContent=tr('Конфіденційність','Конфиденциальность');
+ menu.querySelector('#apkTermsLink').textContent=tr('Правила гри','Правила игры');
  menu.querySelector('#apkMenuInfo').textContent=tr('Прогрес зберігається на цьому пристрої. Перед перевстановленням APK зроби експорт.','Прогресс хранится на этом устройстве. Перед переустановкой APK сделай экспорт.');
  menu.querySelector('[data-apk-action="uk"]').classList.toggle('is-selected',!ru);
  menu.querySelector('[data-apk-action="ru"]').classList.toggle('is-selected',!!ru);
@@ -52,7 +54,7 @@ function setupMenu(){
  <div class="apk-grip" aria-hidden="true"></div><div class="apk-drawer-head"><div><h2 id="apkMenuTitle"></h2><p id="apkMenuSubtitle"></p></div><button type="button" class="apk-close" aria-label="Закрити / Закрыть" data-apk-action="close">×</button></div>
  <p class="apk-setting-label" id="apkLanguageTitle"></p><div class="apk-language-row"><button type="button" class="apk-drawer-btn" data-apk-action="uk">🇺🇦 УКР</button><button type="button" class="apk-drawer-btn" data-apk-action="ru">РУС</button></div>
  <p class="apk-setting-label" id="apkProgressTitle"></p><div class="apk-actions"><button type="button" class="apk-drawer-btn" data-apk-action="export"></button><button type="button" class="apk-drawer-btn" data-apk-action="import"></button></div>
- <a id="apkSupportLink" class="apk-drawer-link" target="_blank" rel="noopener noreferrer" href="https://send.monobank.ua/jar/SDWp3ABSr"></a><p id="apkMenuInfo" class="apk-drawer-info"></p></section>`;
+ <a id="apkSupportLink" class="apk-drawer-link" target="_blank" rel="noopener noreferrer" href="https://send.monobank.ua/jar/SDWp3ABSr"></a><nav class="apk-legal-links" aria-label="Документи гри"><a id="apkPrivacyLink" href="./privacy.html"></a><a id="apkTermsLink" href="./terms.html"></a></nav><p id="apkMenuInfo" class="apk-drawer-info"></p></section>`;
  document.body.append(menu);updateMenu();
  menuBtn.addEventListener('click',()=>menu.hidden?openMenu():closeMenu());
  menu.addEventListener('click',event=>{
@@ -70,6 +72,7 @@ function setupMenu(){
  document.addEventListener('keydown',event=>{if(event.key==='Escape')closeMenu()});
 }
 function closeExistingOverlay(){
+ if(window.NOMERLOV_LEGAL?.isOpen())return window.NOMERLOV_LEGAL.close();
  if(closeMenu())return true;
  const choice=$('choiceBackdrop');
  if(choice&&!choice.classList.contains('hidden')){$('choiceClose')?.click();return true}
