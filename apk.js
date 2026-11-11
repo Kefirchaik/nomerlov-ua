@@ -1,7 +1,7 @@
-/* НомерЛов UA v1.5 — APK-oriented shell. Never changes the game save key. */
+/* НомерЛов UA v1.5.1 — APK-oriented shell. Never changes the game save key. */
 (()=>{
 'use strict';
-const APP_VERSION='1.5.0';
+const APP_VERSION='1.5.1';
 const nativeMode=location.protocol==='file:'||new URLSearchParams(location.search).get('apk')==='1'||/\bwv\b/i.test(navigator.userAgent);
 document.documentElement.classList.add('nomerlov-v15');
 if(nativeMode)document.documentElement.classList.add('apk-native');
