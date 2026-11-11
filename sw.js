@@ -1,5 +1,5 @@
-/* НомерЛов UA 1.5.2 — offline game shell */
-const CACHE = 'nomerlov-ua-v1.5.2';
+/* НомерЛов UA 1.5.3 — offline game shell */
+const CACHE = 'nomerlov-ua-v1.5.3';
 const CORE = ['./','./index.html','./v13.js','./v13.css','./apk.js','./apk.css','./legal.js','./manifest.webmanifest','./icon.svg','./icon-192.png','./icon-512.png','./privacy.html','./terms.html'];
 self.addEventListener('install', event => {
   event.waitUntil(caches.open(CACHE).then(cache => cache.addAll(CORE)).then(() => self.skipWaiting()));
