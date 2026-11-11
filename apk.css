@@ -1,4 +1,4 @@
-/* НомерЛов UA v1.5.1 — mobile APK edition, progressive enhancement. */
+/* НомерЛов UA v1.5.2 — mobile APK edition, progressive enhancement. */
 :root{--apk-violet:#a66dff;--apk-ink:#080b16;--apk-safe-bottom:env(safe-area-inset-bottom,0px)}
 html{-webkit-text-size-adjust:100%;background:var(--apk-ink)}
 body{-webkit-tap-highlight-color:transparent;overscroll-behavior-y:contain}
@@ -95,3 +95,36 @@ html, body { color-scheme: only light; }
 .mini-plate { background-color: #f7f9fd !important; }
 .mini-plate .mini-blue i { background: linear-gradient(#176de1 50%, #f9dd35 50%) !important; }
 .nl13-frame-sample { background-color: #f8faff !important; color: #1c2230 !important; }
+
+
+/* v1.5.2: in-app legal document viewer (works offline in Android APK) */
+.nl-legal-layer{position:fixed;inset:0;z-index:185;background:#050710de;backdrop-filter:blur(6px);display:flex;align-items:center;justify-content:center;padding:0}
+.nl-legal-layer[hidden]{display:none!important}
+.nl-legal-sheet{display:flex;flex-direction:column;width:min(850px,100%);height:min(92dvh,900px);overflow:hidden;border:1px solid #5a4778;border-radius:22px;background:#101320;box-shadow:0 20px 80px #000d}
+.nl-legal-head{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:12px 15px;background:#1b1930;border-bottom:1px solid #514066}
+.nl-legal-back{background:#352548;color:#f6e8ff;border:1px solid #725499;border-radius:11px;font:inherit;font-size:13px;font-weight:800;padding:9px 13px;min-height:42px}
+.nl-legal-select{background:#25213a;color:#f6efff;border:1px solid #5f4d7a;border-radius:10px;padding:9px;font:inherit;font-size:12px}
+.nl-legal-scroll{overflow:auto;overscroll-behavior:contain;padding:16px 18px 35px;color:#c2c9dc;line-height:1.65}
+.nl-legal-scroll h1{font-size:clamp(21px,4vw,28px);line-height:1.2;margin:3px 0}
+.nl-legal-scroll h2{color:#f1eafa;font-size:15px;margin:0 0 8px}
+.nl-legal-scroll p{font-size:13px;line-height:1.7;margin:8px 0}
+.nl-legal-scroll section{padding:14px 0;border-bottom:1px solid #2d3149}
+.nl-legal-scroll a{color:#caa6ff}
+.nl-legal-scroll .nl-legal-kicker{color:#aa92d2;font-size:10px;font-weight:900;letter-spacing:1px}
+.nl-legal-scroll .nl-legal-summary{font-size:13px;color:#9aa8c3}
+.nl-legal-scroll .nl-legal-meta{font-size:11px;color:#8493b2}
+.nl-legal-scroll code{color:#dac7fa;background:#26213c;border-radius:5px;padding:2px 4px}
+.apk-legal-links{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:12px 0 0}
+.apk-legal-links a{border:1px solid #59476f;background:#252039;border-radius:12px;min-height:42px;display:flex;align-items:center;justify-content:center;text-align:center;color:#e0d0f9;font-size:12px;font-weight:800;padding:8px;text-decoration:none}
+.apk-legal-links a:hover{border-color:#ae84ed}
+@media(max-width:700px){.nl-legal-layer{align-items:stretch}.nl-legal-sheet{height:100dvh;max-height:none;border:0;border-radius:0}.nl-legal-head{padding:calc(10px + env(safe-area-inset-top,0px)) 12px 10px}.nl-legal-scroll{padding:14px 16px calc(28px + env(safe-area-inset-bottom,0px))}}
+/* Compact toasts: a shared stack for base game and collector bonuses, max two. */
+.toast-container{position:fixed!important;top:auto!important;bottom:22px!important;right:12px!important;left:auto!important;display:grid!important;gap:6px!important;width:min(278px,calc(100vw - 24px))!important;max-width:none!important;z-index:105!important;pointer-events:none}
+.toast-container .toast,.toast-container .nl13-toast{position:relative!important;top:auto!important;right:auto!important;left:auto!important;transform:none!important;width:100%!important;max-width:100%!important;box-sizing:border-box!important;min-height:0!important;min-width:0!important;padding:9px 11px!important;border-radius:11px!important;box-shadow:0 6px 21px #0009!important;animation:toast-in .18s ease-out!important;display:flex!important;align-items:center!important;gap:8px!important;background:#252339!important;color:#f4efff!important;border:1px solid #61517b!important;border-left:3px solid #b27df3!important}
+.toast-container .toast-icon{font-size:15px!important;display:grid!important;place-items:center;flex:none!important;width:20px;height:20px}
+.toast-container .toast-icon .ui-icon{width:17px!important;height:17px!important}
+.toast-container strong{font-size:12px!important;font-weight:850!important;line-height:1.35!important;overflow-wrap:anywhere}
+.toast-container p,.toast-container .nl13-toast span{font-size:10px!important;line-height:1.35!important;color:#bfc4d9!important;margin:1px 0 0!important;overflow-wrap:anywhere}
+.toast-container .nl13-toast{flex-direction:column!important;align-items:flex-start!important;gap:2px!important}
+@media(max-width:700px){.toast-container{bottom:calc(83px + env(safe-area-inset-bottom,0px))!important;right:9px!important;width:min(235px,calc(100vw - 18px))!important}}
+@media(prefers-reduced-motion:reduce){.toast-container .toast,.toast-container .nl13-toast{animation:none!important}}
