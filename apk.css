@@ -1,4 +1,4 @@
-/* НомерЛов UA v1.5.2 — mobile APK edition, progressive enhancement. */
+/* НомерЛов UA v1.5.3 — mobile APK edition, progressive enhancement. */
 :root{--apk-violet:#a66dff;--apk-ink:#080b16;--apk-safe-bottom:env(safe-area-inset-bottom,0px)}
 html{-webkit-text-size-adjust:100%;background:var(--apk-ink)}
 body{-webkit-tap-highlight-color:transparent;overscroll-behavior-y:contain}
@@ -97,7 +97,7 @@ html, body { color-scheme: only light; }
 .nl13-frame-sample { background-color: #f8faff !important; color: #1c2230 !important; }
 
 
-/* v1.5.2: in-app legal document viewer (works offline in Android APK) */
+/* v1.5.3: in-app legal document viewer (works offline in Android APK) */
 .nl-legal-layer{position:fixed;inset:0;z-index:185;background:#050710de;backdrop-filter:blur(6px);display:flex;align-items:center;justify-content:center;padding:0}
 .nl-legal-layer[hidden]{display:none!important}
 .nl-legal-sheet{display:flex;flex-direction:column;width:min(850px,100%);height:min(92dvh,900px);overflow:hidden;border:1px solid #5a4778;border-radius:22px;background:#101320;box-shadow:0 20px 80px #000d}
@@ -128,3 +128,17 @@ html, body { color-scheme: only light; }
 .toast-container .nl13-toast{flex-direction:column!important;align-items:flex-start!important;gap:2px!important}
 @media(max-width:700px){.toast-container{bottom:calc(83px + env(safe-area-inset-bottom,0px))!important;right:9px!important;width:min(235px,calc(100vw - 18px))!important}}
 @media(prefers-reduced-motion:reduce){.toast-container .toast,.toast-container .nl13-toast{animation:none!important}}
+
+
+/* v1.5.3: compact themed language chooser, never invokes the Android select dialog */
+.nl-legal-lang{position:relative;display:flex;align-items:center;z-index:3}
+.nl-legal-lang-toggle{display:flex;align-items:center;justify-content:space-between;gap:12px;min-width:94px;min-height:44px;padding:9px 12px;border-radius:12px;border:1px solid #7b59b0;background:linear-gradient(145deg,#34284f,#211c37);color:#f7eaff;font:850 13px system-ui;box-shadow:inset 0 1px 0 #ffffff10;cursor:pointer}
+.nl-legal-lang-toggle:focus-visible,.nl-legal-lang-picker button:focus-visible{outline:2px solid #c798ff;outline-offset:2px}
+.nl-legal-chevron{color:#c298f5;font-size:18px;line-height:1}
+.nl-legal-lang-picker{position:absolute;top:calc(100% + 8px);right:0;display:grid;gap:4px;min-width:133px;padding:7px;border:1px solid #8058b8;border-radius:13px;background:#211a34;box-shadow:0 15px 40px #000b;z-index:6}
+.nl-legal-lang-picker[hidden]{display:none!important}
+.nl-legal-lang-picker button{display:flex;justify-content:space-between;align-items:center;gap:13px;min-height:43px;padding:9px 12px;border:0;border-radius:9px;background:none;color:#c4bdd6;font:800 13px system-ui;text-align:left;cursor:pointer}
+.nl-legal-lang-picker button.active,.nl-legal-lang-picker button[aria-checked="true"]{background:#664294;color:white}
+.nl-legal-lang-picker button span{opacity:0;color:#dab9ff}
+.nl-legal-lang-picker button[aria-checked="true"] span{opacity:1}
+
