@@ -1,0 +1,70 @@
+/* НомерЛов UA v1.5 — mobile APK edition, progressive enhancement. */
+:root{--apk-violet:#a66dff;--apk-ink:#080b16;--apk-safe-bottom:env(safe-area-inset-bottom,0px)}
+html{-webkit-text-size-adjust:100%;background:var(--apk-ink)}
+body{-webkit-tap-highlight-color:transparent;overscroll-behavior-y:contain}
+button,a,input,select,[role="button"]{touch-action:manipulation}
+button,a{-webkit-tap-highlight-color:transparent}
+button:active:not(:disabled),.btn:active:not(:disabled){transform:scale(.98)}
+button,.btn{transition:transform .13s ease,background .16s ease,border-color .16s ease}
+::selection{background:#a76bff6b;color:#fff}
+#apkMenuBtn{display:none}
+.apk-overlay{position:fixed;inset:0;z-index:130;background:#050612c9;backdrop-filter:blur(10px);display:flex;justify-content:center;align-items:flex-end;padding:16px 12px calc(12px + var(--apk-safe-bottom));animation:apkFade .18s ease}
+.apk-overlay[hidden]{display:none!important}
+.apk-drawer{width:min(100%,510px);max-height:min(83dvh,700px);overflow-y:auto;overscroll-behavior:contain;border:1px solid #6a4e96;background:linear-gradient(150deg,#28203e,#171a2d 67%,#111827);border-radius:26px;box-shadow:0 22px 80px #000c;padding:12px 18px 20px;animation:apkRise .22s ease-out}
+.apk-grip{height:5px;width:46px;border-radius:10px;background:#6d6087;margin:0 auto 15px}
+.apk-drawer-head{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:15px}
+.apk-drawer-head h2{font-size:22px;margin:0}
+.apk-drawer-head p{color:#a7b1c7;font-size:12px;margin:3px 0 0}
+.apk-close{height:43px;width:43px;flex:none;border-radius:14px;color:#e6dcff;border:1px solid #65537e;background:#302845;font-size:26px;line-height:1}
+.apk-setting-label{font-weight:800;font-size:12px;color:#bfc4de;letter-spacing:.3px;margin:14px 0 9px}
+.apk-language-row,.apk-actions{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}
+.apk-drawer-btn{display:flex;align-items:center;justify-content:center;gap:9px;min-height:47px;border:1px solid #524365;border-radius:14px;background:#201d34;color:#e4e1f3;font-size:13px;font-weight:800;padding:10px 12px}
+.apk-drawer-btn.is-selected{border-color:#aa7df0;background:#47316e;color:white}
+.apk-drawer-btn svg{width:18px;height:18px}
+.apk-drawer-info{font-size:11px;line-height:1.55;color:#9ba5be;margin:14px 0 0}
+.apk-drawer-link{display:flex;align-items:center;justify-content:center;margin-top:14px;min-height:46px;border-radius:14px;background:linear-gradient(110deg,#7043c7,#9861ef);color:#fff!important;font-weight:850;font-size:13px;text-decoration:none}
+.apk-splash{position:fixed;inset:0;z-index:190;background:radial-gradient(circle at 50% 42%,#2c1651 0,#12132b 49%,#080a14 84%);display:grid;place-items:center;text-align:center;padding:24px;transition:opacity .32s ease,visibility .32s}
+.apk-splash.is-done{opacity:0;visibility:hidden;pointer-events:none}
+.apk-splash-inner{display:flex;align-items:center;flex-direction:column;gap:15px;animation:apkAppear .52s ease both}
+.apk-splash-mark{display:grid;place-items:center;width:104px;height:104px;border-radius:30px;background:linear-gradient(145deg,#be76ff,#6541d4);box-shadow:0 0 80px #8d52fc73,0 14px 38px #0009;border:2px solid #c89aff7d}
+.apk-splash-mark svg{width:70px;height:70px}
+.apk-splash strong{font-size:clamp(27px,8vw,39px);font-weight:1000;letter-spacing:-1.25px;color:#fff;line-height:1.15}
+.apk-splash strong span{color:#c18bff}
+.apk-splash p{font-size:12px;letter-spacing:1.6px;text-transform:uppercase;color:#afafd1;font-weight:800}
+.apk-splash-line{width:108px;height:3px;border-radius:8px;background:linear-gradient(90deg,#442a78,#bd84ff,#442a78);box-shadow:0 0 16px #a874ff;margin-top:13px}
+@keyframes apkFade{from{opacity:0}to{opacity:1}}
+@keyframes apkRise{from{transform:translateY(38px);opacity:.65}to{transform:translateY(0);opacity:1}}
+@keyframes apkAppear{from{transform:scale(.91);opacity:0}to{transform:scale(1);opacity:1}}
+@media(max-width:700px){
+ .wrap{width:100%;max-width:540px;padding:0 15px}
+ .header{position:relative;z-index:4;padding:15px 0 17px;margin-bottom:0;border-bottom:1px solid #ffffff12;gap:8px}
+ .brand{gap:9px}.brand-mark{height:42px;width:42px;box-shadow:0 8px 22px #a451d14a}
+ .brand-text{font-size:clamp(16px,4.9vw,21px);letter-spacing:-.7px}.brand-tag{font-size:10px}
+ .header-right{gap:7px}.header-right .mini-stat{padding:6px 9px;min-height:41px;border-radius:14px}
+ .header-right .mini-stat .ico{font-size:17px}.header-right .mini-stat .small{font-size:9px}
+ .header-right .mini-stat strong{font-size:13px}
+ .header-right .language-switch{display:none!important}
+ #apkMenuBtn{display:grid;place-items:center;flex:none;width:41px;height:41px;border-radius:14px;background:#25203b;border:1px solid #4b3b66;color:#d6baff;font-weight:950;font-size:24px;line-height:1}
+ .intro{margin:20px 0 19px}.intro h1{font-size:clamp(27px,8vw,36px);line-height:1.12;letter-spacing:-1.1px}
+ .intro p{font-size:12px;line-height:1.55}.eyebrow{font-size:10px;line-height:1.45;letter-spacing:1.1px}
+ .app-layout,.collection-layout,.shop-layout,.stats-layout{gap:15px}.stack{gap:15px}
+ .panel{border-radius:22px}.panel-pad{padding:18px}.hunt-card{padding:10px;border-radius:22px}
+ .card-surface{padding:21px 17px 20px;min-height:320px;border-radius:19px}
+ .rarity-line{font-size:12px}.smallline{font-size:12px}.price{font-size:clamp(29px,8.7vw,44px)}
+ .action-bar .btn{min-height:51px;font-size:clamp(12px,3.6vw,15px);border-radius:15px}
+ .shop-card{border-radius:20px;padding:20px;min-height:0}.shop-card .btn{min-height:46px}
+ .collection-item{border-radius:17px}.collection-item .item-btns button{min-height:38px}
+ .bottom-nav{bottom:0;left:0;right:0;z-index:45;background:linear-gradient(180deg,#19152bfa,#111625fc);border-top:1px solid #7953ab63;box-shadow:0 -11px 35px #05070b9f;backdrop-filter:blur(18px);padding:8px 8px calc(9px + var(--apk-safe-bottom));gap:3px;justify-content:center}
+ .bottom-nav button{min-width:0;min-height:53px;flex:1;position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;border-radius:13px;color:#8b94b2;font-size:10px;font-weight:800;line-height:1.1;padding:7px 2px 6px}
+ .bottom-nav button .nav-icon{display:grid;place-items:center;height:25px;line-height:1}
+ .bottom-nav button .nav-icon svg{width:24px;height:24px}
+ .bottom-nav button.active{background:#352548aa;color:#d9b9ff}
+ .bottom-nav button.active:after{content:"";position:absolute;top:-8px;width:27px;height:3px;background:#bf82ff;box-shadow:0 1px 12px #ae6aff;border-radius:3px}
+ .footer{flex-wrap:wrap;padding-bottom:calc(102px + var(--apk-safe-bottom));gap:10px}
+ .toast-container{top:calc(12px + env(safe-area-inset-top,0px));max-width:calc(100vw - 24px)}
+ .modal-screen,.choice-backdrop{padding-bottom:calc(14px + var(--apk-safe-bottom))}
+ .nl13-panel{border-radius:21px}.nl13-panel .btn{min-height:43px}
+}
+@media(max-width:370px){.wrap{padding:0 11px}.header{gap:4px}.brand{gap:6px}.brand-mark{height:37px;width:37px}.brand-text{font-size:15px}.brand-tag{font-size:9px}.header-right{gap:5px}.header-right .mini-stat{padding:5px 7px}.header-right .mini-stat .ico{font-size:14px}#apkMenuBtn{width:37px;height:39px}.bottom-nav{padding-left:4px;padding-right:4px}.bottom-nav button{font-size:9px}}
+@media(min-width:701px){.apk-overlay{align-items:center}.apk-drawer{border-radius:26px}}
+@media(prefers-reduced-motion:reduce){.apk-splash-inner,.apk-overlay,.apk-drawer{animation:none!important}.apk-splash{transition:none!important}}
